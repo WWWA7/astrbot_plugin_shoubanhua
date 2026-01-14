@@ -157,6 +157,9 @@ class FigurineProPlugin(Star):
         Args:
             prompt(string): 图片生成的提示词。
         '''
+        # 检查 LLM 工具开关
+        if not self.conf.get("enable_llm_tool", True):
+            return "LLM工具调用已禁用，请使用 #文生图 或 #bnn 指令。"
         # 1. 计算预设
         final_prompt, preset_name = self._process_prompt_and_preset(prompt)
 
@@ -188,6 +191,10 @@ class FigurineProPlugin(Star):
             use_message_images(boolean): 默认 true
             task_types(string): 任务类型
         '''
+        # 检查 LLM 工具开关
+        if not self.conf.get("enable_llm_tool", True):
+            return "LLM工具调用已禁用，请使用 #手办化 等指令。"
+        
         # 1. 计算预设
         processed_prompt, preset_name = self._process_prompt_and_preset(prompt)
         final_prompt = f"(Task Type: {task_types}) {processed_prompt}"

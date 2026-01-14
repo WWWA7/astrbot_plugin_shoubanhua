@@ -1,4 +1,10 @@
 {
+    "enable_llm_tool": {
+    "description": "【功能】启用LLM工具调用",
+    "type": "bool",
+    "hint": "开启后，LLM可以通过函数调用自动触发文生图/图生图功能。关闭后仅支持传统指令触发。",
+    "default": true
+    },  
     "generic_api_url": {
         "description": "【Generic】API地址",
         "type": "string",
